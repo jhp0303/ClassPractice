@@ -6,10 +6,25 @@ using System.Threading.Tasks;
 
 namespace practice1
 {
+    public enum enShape
+    {
+        Rectangle,
+        Triangle,
+        Circle,
+    }
+
     public static class ShapeMath
     {
-        public static double GetArea(string shape = "", double length1 = 0, double length2 = 2)
+        public static double GetArea(enShape shape, double length1 = 0, double length2 = 2)
         {
+            switch(shape)
+            {
+                case enShape.Rectangle: return length1 * length2;
+                case enShape.Triangle: return length1 * length2 / 2.0f;
+                case enShape.Circle: return Math.PI * Math.Pow(length1, 2);
+                default: return 0;
+            }
+            /*
             if (String.Equals("Rectangle", shape, StringComparison.OrdinalIgnoreCase))
             {
                 return length1 * length2;
@@ -24,6 +39,7 @@ namespace practice1
             }
 
             return 0;
+            */
         }
     }
 }
