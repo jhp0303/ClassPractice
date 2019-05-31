@@ -6,6 +6,16 @@ using System.Threading.Tasks;
 
 namespace practice1
 {
+    public enum enAnimalType
+    {
+        fox,
+        dog,
+        cat,
+        tiger,
+        cow,
+        pig,
+    }
+
     class Animal
     {
         static int numOfAnimals = 0;
@@ -46,7 +56,7 @@ namespace practice1
         //출력 함수
         public void MakeSound()
         {
-            Console.WriteLine("[A] name : {0}, sound : {1}, number : {2}", mName, mSound, numOfAnimals);
+            Console.WriteLine("[A] name : {0}, sound : {1}", mName, mSound);
         }
 
         public static int GetNumOfAnimals()
