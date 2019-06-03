@@ -63,5 +63,10 @@ namespace practice1
         {
             return numOfAnimals;
         }
+
+        public string GetName()
+        {
+            return mName;
+        }
     }
 }

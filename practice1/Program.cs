@@ -39,9 +39,53 @@ namespace practice1
             animals.Add(new Animal("dog", "Woof"));
             animals.Add(new Animal("cat", "Mewww"));
 
-            foreach(var animal in animals)
+            /* //  바로 아래 foreach와 같음
+            for (int i = 0; i < animals.Count; i++)
             {
-                animal.MakeSound();
+                Animal thisAnimal = animals[i];
+            }
+            */
+
+            bool bFound = false;
+
+            foreach (var animal in animals)
+            {
+                var animalName = animal.GetName();
+                if (animalName == "pig")
+                {
+                    bFound = true;
+                    break;
+                }
+            }
+
+            if (bFound)
+            {
+                Console.WriteLine("pig found");
+            }
+            else
+            {
+                Console.WriteLine("pig not found");
+            }
+
+            foreach (var animal in animals)
+            {
+                //var animalNamePub = animal.name;   - private이기떄문에 안됨
+                var animalName = animal.GetName();
+                if (animalName == "cat")
+                {
+                    Console.WriteLine("Found cat");
+                    Console.WriteLine(">>");
+                    animal.MakeSound();
+                }
+                //animal.MakeSound();
+            }
+
+            Animal myCat = animals.Find(item => item.GetName().Equals("cat"));
+            if (myCat != null)
+            {
+                Console.WriteLine("Found my cat again");
+                Console.WriteLine(">>");
+                myCat.MakeSound();
             }
 
             Dictionary<enAnimalType, Animal> dicAnimals = new Dictionary<enAnimalType, Animal>();
@@ -50,7 +94,9 @@ namespace practice1
             dicAnimals.Add(enAnimalType.dog, new Animal("blue", "Woof"));
             dicAnimals.Add(enAnimalType.cat, new Animal("pink", "Meww"));
 
-            foreach(KeyValuePair<enAnimalType, Animal> item in dicAnimals)
+            var someAnimal = dicAnimals[enAnimalType.cat]; // foreach (var animal in animals) 2개 하고 동일
+
+            foreach (KeyValuePair<enAnimalType, Animal> item in dicAnimals)
             {
                 var key = item.Key;
                 var value = item.Value;
