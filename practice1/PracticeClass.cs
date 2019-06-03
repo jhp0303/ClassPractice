@@ -183,5 +183,68 @@ namespace practice1
 
             Console.ReadLine();
         }
+
+        public static void practice2()
+        {
+            //string str = "Kunsan University";
+            //Console.WriteLine(str.Substring(str.IndexOf("University"))); // \n에 n은 newline의 약자
+
+            //example 1
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < 10; i++)
+            {
+                sb.Append(i).Append(" ");
+            }
+
+            Console.WriteLine(sb.ToString());
+
+            //example 2
+            StringBuilder sb2 = new StringBuilder();
+            sb2.Append("The list starts here:");
+            sb2.AppendLine();
+            sb2.Append("1 cat").AppendLine();
+
+            string str2 = sb2.ToString();
+            Console.WriteLine(str2);
+
+            //example 3
+            StringBuilder sb3 = new StringBuilder("Korea University");
+            sb3.Replace("Korea", "Kunsan");
+            Console.WriteLine(sb3.ToString());
+
+            //example 4
+            string[] items = { "Cat", "Dog", "Fox", "Pig" };
+
+            StringBuilder sb4 = new StringBuilder("These animals are required:").AppendLine();
+
+            foreach(string item in items)
+            {
+                sb4.Append(item).AppendLine();
+            }
+
+            Console.WriteLine(sb4.ToString());
+
+            //example 5
+            StringBuilder sb5 = new StringBuilder("Kunsan is University");
+            sb5.Remove(7,3);
+            Console.WriteLine(sb5.ToString());
+
+            //example 6
+            StringBuilder sb6 = new StringBuilder();
+            sb6.Append("Kunsan University.");
+
+            TrimEnd(sb6, '.');
+            Console.WriteLine(sb6.ToString());
+        }
+        
+        private static void TrimEnd(StringBuilder sb, char letter)
+        {
+            if (sb.Length == 0) return;
+
+            if (sb[sb.Length -1] == letter)
+            {
+                sb.Length -= 1;
+            }
+        }
     }
 }

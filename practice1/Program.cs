@@ -10,9 +10,8 @@ namespace practice1
     {
         static void Main(string[] args)
         {
-            PracticeClass.practice1();
+            PracticeClass.practice2();  //practice1,2를 하냐에따라 PracticeClass의 어떤 펑션을 실행할지 결정함.
             Console.ReadLine();
-           
         }
     }
 }
