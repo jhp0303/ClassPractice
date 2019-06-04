@@ -264,5 +264,39 @@ namespace practice1
                 Console.WriteLine("{0,-18} {1,14:N1} {2,14:N2} miles per side",
                                   area.Item1, area.Item2, Math.Round(Math.Sqrt(area.Item2), 2));
         }
+
+        public static void practice4()
+        {
+            
+            Console.Write("newID : ");
+            string newID = Console.ReadLine();
+            Console.Write("newPW : ");
+            string newPW = Console.ReadLine();
+
+            Console.WriteLine("ID : {0}, Password : {1}", newID, newPW);
+
+            Console.Write("ID : ");
+            string ID = Console.ReadLine();
+            Console.Write("PW : ");
+            string PW = Console.ReadLine();
+
+            if (ID == newID.ToLower())
+            {
+                if (PW == newPW)
+                {
+                    Console.WriteLine("ID / PW is Correct");
+                }
+                else
+                {
+                    Console.WriteLine("Wrong PW");
+                }
+            }
+
+            else
+            {
+                Console.WriteLine("Wrong ID");
+            }
+
+        }
     }
 }
