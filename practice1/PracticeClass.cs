@@ -298,5 +298,130 @@ namespace practice1
             }
 
         }
+
+        public static void practice5()
+        {
+
+              //아래와 같음
+            int[] score = new int[] { 90, 75, 85, 95, 70, 75, 85, 85, 95, 72 };
+            double result = 0;
+            for (int i = 0; i < score.Length; i++)
+            {
+                result += score[i];
+            }
+
+            double ave = result / score.Length;
+
+            Console.WriteLine("점수 : {0}", string.Join<int>(",", score));
+            Console.WriteLine("합계 : {0}", result);
+            Console.WriteLine("평균 : {0}", ave);
+
+
+            /*  //배열을 이용해서 10명의 학생의 점수의 합계와 평균을 구하기
+            int[] score = new int[] { 90, 75, 85, 95, 70, 75, 85, 85, 95, 72 };
+            double result = 0;
+            double ave = 0;
+            for (int i = 0; i < score.Length; i++)
+            {
+                result += score[i];
+                
+                if (i >=1)
+                {
+                    ave = result / (i+1);
+                }
+            }
+            Console.WriteLine("합계 : {0}", result);
+            Console.WriteLine("평균 : {0}", ave);
+
+
+
+            /*  //점수를 입력받아 학점 구분하기
+            Console.Write("점수 입력 : ");
+            string scores = Console.ReadLine();
+            int score = Convert.ToInt32(scores);
+
+            if (score >= 90)
+            {
+                Console.WriteLine("학점 : A");
+            }
+
+            else if (score >= 80)
+            {
+                Console.WriteLine("학점 : B");
+            }
+
+            else if (score >= 70)
+            {
+                Console.WriteLine("학점 : C");
+            }
+
+            else if (score >= 80)
+            {
+                Console.WriteLine("학점 : D");
+            }
+
+            else
+            {
+                Console.WriteLine("학점 : F");
+            }
+
+
+            /*  //원하는 줄 수 많큼 별찍기
+            Console.Write("Enter line number : ");
+            string a = Console.ReadLine();
+            int b = Convert.ToInt32(a);
+
+            for (int i = 1; i <= b; i++)
+            {
+                for (int j = 1; j <= i; j++)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine("");
+            }
+
+
+            
+
+
+            /*  //구구단
+            for (int i = 2; i < 10; i++)
+            {
+                Console.WriteLine("\n");
+                for (int a = 1; a < 10; a++)
+                {
+                    if (a == 1)
+                    {
+                        Console.WriteLine("** {0}단 **", i);
+                        Console.WriteLine("{0} x {1} = {2}", i, a, a*i);
+                    }
+                    else
+                    {
+                        Console.WriteLine("{0} x {1} = {2}", i, a, a*i);
+                    }
+                    
+                }
+            }
+
+            /*  //1~100까지 합계 구하기
+            int a = 0;
+            for (int i = 0; i <= 100; i++)
+            {
+                a += i;
+            }
+            Console.WriteLine("1 + 2 + 3 + 4 + ... + 99 + 100 = {0}", a);
+
+
+            /*  //섭씨 온도를 화씨 온도로 변화하기
+            double C, F = 0;
+
+            C = 31.50;
+
+            F = (C * 9/5) + 32;
+
+            Console.WriteLine("섭씨 31.50도는 화씨{0}도 입니다.", F);
+            Console.WriteLine();
+            */
+        }
     }
 }
