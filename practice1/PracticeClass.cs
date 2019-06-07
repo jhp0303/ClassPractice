@@ -217,7 +217,7 @@ namespace practice1
 
             StringBuilder sb4 = new StringBuilder("These animals are required:").AppendLine();
 
-            foreach(string item in items)
+            foreach (string item in items)
             {
                 sb4.Append(item).AppendLine();
             }
@@ -226,7 +226,7 @@ namespace practice1
 
             //example 5
             StringBuilder sb5 = new StringBuilder("Kunsan is University");
-            sb5.Remove(7,3);
+            sb5.Remove(7, 3);
             Console.WriteLine(sb5.ToString());
 
             //example 6
@@ -236,12 +236,12 @@ namespace practice1
             TrimEnd(sb6, '.');
             Console.WriteLine(sb6.ToString());
         }
-        
+
         private static void TrimEnd(StringBuilder sb, char letter)
         {
             if (sb.Length == 0) return;
 
-            if (sb[sb.Length -1] == letter)
+            if (sb[sb.Length - 1] == letter)
             {
                 sb.Length -= 1;
             }
@@ -267,7 +267,7 @@ namespace practice1
 
         public static void practice4()
         {
-            
+
             Console.Write("newID : ");
             string newID = Console.ReadLine();
             Console.Write("newPW : ");
@@ -299,10 +299,10 @@ namespace practice1
 
         }
 
-        public static void practice5()
+        public static void practice5()  //2019-06-05
         {
 
-              //아래와 같음
+            //아래와 같음
             int[] score = new int[] { 90, 75, 85, 95, 70, 75, 85, 85, 95, 72 };
             double result = 0;
             for (int i = 0; i < score.Length; i++)
@@ -422,6 +422,214 @@ namespace practice1
             Console.WriteLine("섭씨 31.50도는 화씨{0}도 입니다.", F);
             Console.WriteLine();
             */
+        }
+
+        public static void practice6()  //2019-06-07
+        {
+
+
+            /*
+            string plainText = "Hello World";
+
+            StringBuilder sb = new StringBuilder();
+
+            foreach (char ch in plainText)
+            {
+                char newchar = ch;
+
+                if((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z'))
+                {
+                    //key + 3 만큼 이동
+                    newchar = (char)(ch + 3);
+
+                    //대문자 끝 3글자가 왔을 시 대문자를 소문자로 넘겨주는 코드
+                    if((Char.IsUpper(ch) && newchar > 'Z') || (Char.IsLower(ch) && newchar > 'z'))
+                    {
+                        newchar = (char)(newchar + 26);
+                    }
+                }
+                sb.Append(newchar);
+            }
+            Console.WriteLine(sb.ToString());
+
+            /*    // 내가 한거 위에가 정답 : 주어진 스트링을 시저의 암호화 기법으로 변환하기
+
+            string str = "Hello World";
+
+            for (int i = 0; i < str.Length; i++)
+            {
+                char t = str[i];
+                int ascii = Convert.ToInt32(t);
+                if (ascii == 32)
+                {
+                    t = (char)(str[i] - 32);
+                    Console.Write(t);
+                }
+                else if (ascii != 32)
+                {
+                    t = (char)(str[i] + 3);
+                    Console.Write(t);
+                }
+            }
+
+
+            /*  주어진 문자열의 대소문자를 비교해서 대문자면 소문자로, 소문자로 대문자로 바꾸기
+            string str = "Hello, World";
+
+            for (int i = 0; i < str.Length; i++)
+            {
+                char t = str[i];
+                if (char.IsUpper(t))
+                {
+                    Console.Write("{0}", char.ToLower(t));
+                }
+
+                else
+                {
+                    Console.Write("{0}", char.ToUpper(t));
+                }
+            }
+
+
+
+            /*  
+            int[,] score = new int[5, 3]
+            {
+                { 90, 80, 90 },
+                { 85, 85, 85 },
+                { 95, 70, 75 },
+                { 80, 80, 90 },
+                {90, 75, 80 }
+            };
+
+            for (int i = 0; i < score.GetLength(0); i++)
+            {
+                double sum = 0;
+                for (int j = 0; j < score.GetLength(1); j++)
+                {
+                    sum += score[i, j];
+                }
+
+                double avg = sum / 3;
+                Console.WriteLine("ID={0} : 합계={1}, 평균={2:N2}", i, sum, avg);
+            }
+
+            /*  위가 정답, 아래가 내가 한거 : 제시된 점수의 각각의 합과 평균을 구하기
+            int[,] score1 = new int[,]
+            { { 90, 80, 90 },
+              { 85, 85, 85 },
+              { 95, 70, 75 },
+              { 80, 80, 90 },
+              { 90, 75, 80 }
+            }; //배열이 정해져있는게 아니라면 new int [5,3] 과 같이 써줘야함
+
+            int sum = 0;
+            double avg = 0.0;
+            
+            for (int i = 0; i < score1.GetLength(0); i++)                //Console.WriteLine(score1.Length);   GetLength를 이용해서 각 배열의 숫자만큼만..
+            {
+                for (int j = 0; j < score1.GetLength(1); j++)
+                {
+                    sum += score1[i,j];
+                    avg = sum / 3;
+                    Console.WriteLine("ID={0} : 합계={1}, 평균={2}", i, sum, avg);
+                }
+
+            }*/
+        }
+
+
+        public static int Sum(int[] data)   //강사님이 한거 2019-06-07
+        {   // 메인함수에서 인자를 받아 메서드를 호출해 출력하기
+            int s = 0;
+            for (int i = 0; i < data.Length; i++)
+            {
+                s += data[i];
+            }
+            return s;
+
+            /*  //아래가 내가한거 위에가 강사님이한거
+            int result = 0;
+            for (int i = 0; i < data.Length; i++)
+            {
+                result += data[i];
+            }
+            return result;
+            */
+        }
+
+
+        public static int Add(int a, int b)
+        {  // 사칙연산 메서드를 호출해서 메인함수에서 계산하기 2019-06-07
+            int result = 0;
+
+            result = a + b;
+
+            return result;
+        }
+        public static int Del(int a, int b)
+        {
+            int result = 0;
+
+            result = a - b;
+
+            return result;
+        }
+        public static int Mul(int a, int b)
+        {
+            int result = 0;
+
+            result = a * b;
+
+            return result;
+        }
+        public static int Div(int a, int b)
+        {
+            int result = 0;
+
+            result = a / b;
+
+            return result;
+
+        }
+    }
+    public class Triangle
+    {
+        //필드    일반적인 변수들 가지고있음
+        private double a;
+        private double b;
+        private double c;
+
+        //생성자   
+        public Triangle (double _a, double _b, double _c)
+        {
+            a = _a;
+            b = _b;
+            c = _c;
+        }
+
+        //속성
+        public double A
+        {
+            get { return a; }
+        }
+        public double B
+        {
+            get { return b; }
+        }
+        public double C
+        {
+            get { return c; }
+        }
+
+        //메서드   함수같은거
+        public double Perimeter
+        {
+            get { return a + b + c; }
+        }
+        public void Draw()
+        {
+            Console.WriteLine();
         }
     }
 }
