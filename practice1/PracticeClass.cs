@@ -597,6 +597,9 @@ namespace practice1
         {
             // A : 3, 4, 5
             // B : 3, 3, 3
+
+            //Triangle.triA = new Triangle(3,4,5);
+
             List<Triangle> triangles = new List<Triangle>();
             triangles.Add(new Triangle(3, 4, 5));
             triangles.Add(new Triangle(3, 3, 3));
@@ -644,6 +647,79 @@ namespace practice1
                 Console.WriteLine("둘레길이 : {0}", sum);
             }
         }
+
+        public static void practice13_1()
+        {
+            Calculater calA = new Calculater();
+            Calculater calB = new Calculater();
+
+            int a = 20;
+            int b = 10;
+
+            double x = 20.5;
+            double y = 10.5;
+
+            Console.WriteLine("a={0}, b={1}", a, b);
+            Console.WriteLine("사칙연산 결과: {0},{1},{2},{3}", calA.Add(a,b), calA.Substract(a, b), calA.Multiply(a, b), calA.Divide(a, b));
+            Console.WriteLine();
+            Console.WriteLine("a={0}, b={1}", x, y);
+            Console.WriteLine("사칙연산 결과: {0},{1},{2},{3:N6}", calB.Add(x, y), calB.Substract(x, y), calB.Multiply(x, y), calB.Divide(x, y));
+
+        }
+
+        class Calculater        //practice13_1 에 쓰이는 사칙연산 클래스
+        {
+
+            
+            public int Add(int a, int b)
+            {
+                return a + b;
+            }
+            public double Add(double x, double y)
+            {
+                return x + y;
+            }
+
+            public int Substract(int a, int b)
+            {
+                return a - b;
+            }
+
+            public double Substract(double x, double y)
+            {
+                return x - y;
+            }
+
+            public int Multiply(int a, int b)
+            {
+                return a * b;
+            }
+
+            public double Multiply(double x, double y)
+            {
+                return x * y;
+            }
+
+            public int Divide(int a, int b)
+            {
+                if (b == 0)
+                {
+                    Console.WriteLine("0으로는 나눌수가 없습니다.");
+                    return 0;
+                }
+                return a / b;
+            }
+            public double Divide(double x, double y)
+            {
+                if (y == 0)
+                {
+                    Console.WriteLine("0으로는 나눌수가 없습니다.");
+                    return 0;
+                }
+                return x * 1.0 / y;
+            }
+        }
+
     }
     public class Triangle   // practice12를 이해하기위함.
     {
