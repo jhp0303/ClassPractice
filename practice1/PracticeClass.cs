@@ -780,8 +780,56 @@ namespace practice1
 
         public static void practice14()
         {
+            Car car = new Car("자동차 이름");
 
+            Console.WriteLine("시작시 속도:{0}", car.Start());
+            Console.WriteLine("엑셀 1단계 속도:{0}", car.Accelerate());
+            Console.WriteLine("엑셀 2단계 속도:{0}", car.Accelerate()+10);
+            Console.WriteLine("정지후 속도:{0}", car.Stop());
         }
+
+        class Car
+        {
+            private int speed;
+
+            public string Name {get; set;}
+            public string Maker { get; set; }
+            public string Model { get; set; }
+
+            public int Speed { get { return this.speed; } } //내부 speed를 외부로 가져가기위한 변수
+
+            public Car(string param_name)
+            {
+                Name = param_name;
+            }
+
+            public int Start()
+            {
+                speed = 1;
+                return speed;
+
+            }
+
+            public int Stop()
+            {
+                speed = 0;
+                return speed;
+            }
+
+            public int Accelerate(int value = 10)
+            {
+                speed += value;
+                return speed;
+
+            }
+
+            public int Break()
+            {
+                speed -= 10;
+                return speed;
+            }
+        }
+
     }
     public class Triangle   // practice12를 이해하기위함.
     {
