@@ -781,11 +781,14 @@ namespace practice1
         public static void practice14()
         {
             Car car = new Car("자동차 이름");
-
-            Console.WriteLine("시작시 속도:{0}", car.Start());
-            Console.WriteLine("엑셀 1단계 속도:{0}", car.Accelerate());
-            Console.WriteLine("엑셀 2단계 속도:{0}", car.Accelerate()+10);
-            Console.WriteLine("정지후 속도:{0}", car.Stop());
+            car.Start();
+            Console.WriteLine("시작시 속도:{0}", car.Speed);
+            car.Accelerate();
+            Console.WriteLine("엑셀 1단계 속도:{0}", car.Speed);
+            car.Accelerate();
+            Console.WriteLine("엑셀 2단계 속도:{0}", car.Speed+10);
+            car.Stop();
+            Console.WriteLine("정지후 속도:{0}", car.Speed);
         }
 
         class Car
@@ -803,33 +806,42 @@ namespace practice1
                 Name = param_name;
             }
 
-            public int Start()
+            public void Start()
             {
                 speed = 1;
-                return speed;
 
             }
 
-            public int Stop()
+            public void Stop()
             {
                 speed = 0;
-                return speed;
             }
 
-            public int Accelerate(int value = 10)
+            public void Accelerate(int value = 10)
             {
                 speed += value;
-                return speed;
 
             }
 
-            public int Break()
+            public void Break()
             {
+                if (speed == 0)
+                {
+                    Console.WriteLine("자동차의 속도가 0인데 브레이크를 밟아?");
+                }
                 speed -= 10;
-                return speed;
             }
         }
 
+        public static void practice15()
+        {
+
+        }
+        
+        class IDrawable
+        {
+
+        }
     }
     public class Triangle   // practice12를 이해하기위함.
     {
