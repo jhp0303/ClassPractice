@@ -629,7 +629,7 @@ namespace practice1
             // 삼각형2: A=3, B=3, C=3
             // 둘레길이: 9
         }
-        
+
         class Triangle
         {
             private int A, B, C;
@@ -660,17 +660,15 @@ namespace practice1
             double y = 10.5;
 
             Console.WriteLine("a={0}, b={1}", a, b);
-            Console.WriteLine("사칙연산 결과: {0},{1},{2},{3}", calA.Add(a,b), calA.Substract(a, b), calA.Multiply(a, b), calA.Divide(a, b));
+            Console.WriteLine("사칙연산 결과: {0},{1},{2},{3}", calA.Add(a, b), calA.Substract(a, b), calA.Multiply(a, b), calA.Divide(a, b));
             Console.WriteLine();
-            Console.WriteLine("a={0}, b={1}", x, y);
+            Console.WriteLine("x={0}, y={1}", x, y);
             Console.WriteLine("사칙연산 결과: {0},{1},{2},{3:N6}", calB.Add(x, y), calB.Substract(x, y), calB.Multiply(x, y), calB.Divide(x, y));
 
         }
 
         class Calculater        //practice13_1 에 쓰이는 사칙연산 클래스
         {
-
-            
             public int Add(int a, int b)
             {
                 return a + b;
@@ -720,6 +718,70 @@ namespace practice1
             }
         }
 
+        public static void practice13_2()
+        {
+            int a = 20, b = 10;
+            double x = 20.5, y = 10.5;
+            Calculater2<int> calA = new Calculater2<int>();
+            Calculater2<double> calB = new Calculater2<double>();
+
+            Console.WriteLine("a={0}, b={1}", a, b);
+            Console.WriteLine("사칙연산 결과: {0},{1},{2},{3}", calA.Add(a, b), calA.Substract(a, b), calA.Multiply(a, b), calA.Divine(a, b));
+            Console.WriteLine();
+            Console.WriteLine("a={0}, b={1}", x, y);
+            Console.WriteLine("사칙연산 결과: {0},{1},{2},{3:N6}", calB.Add(x, y), calB.Substract(x, y), calB.Multiply(x, y), calB.Divine(x, y));
+        }
+
+        class Calculater2<T>    //practice13_2 에 쓰이는 제네릭 클래스
+        {
+            public T Add(T a,T b)
+            {
+                dynamic da = a;
+                dynamic db = b;
+
+                dynamic sum = da + db;
+                return sum;
+            }
+            public T Substract(T a,T b)
+            {
+                dynamic da = a;
+                dynamic db = b;
+
+                dynamic substract = da - db;
+                return substract;
+            }
+            public T Multiply(T a, T b)
+            {
+                dynamic da = a;
+                dynamic db = b;
+
+                dynamic multiply = da * db;
+                return multiply;
+            }
+            public T Divine(T a, T b)
+            {
+                dynamic da = a;
+                dynamic db = b;
+
+                if (db == 0)
+                {
+                    Console.WriteLine("0으로 나눌 수 없습니다");
+                }
+                if (db > da)
+                {
+                    dynamic divine1 = da % db;
+                    return divine1;
+                }
+                dynamic divine = da / db;
+                return divine;
+            }
+
+        }
+
+        public static void practice14()
+        {
+
+        }
     }
     public class Triangle   // practice12를 이해하기위함.
     {
