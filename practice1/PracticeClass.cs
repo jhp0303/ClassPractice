@@ -825,11 +825,15 @@ namespace practice1
 
             public void Break()
             {
-                if (speed == 0)
+                /*
+                if (speed < 10)
                 {
                     Console.WriteLine("자동차의 속도가 0인데 브레이크를 밟아?");
                 }
+                */
+
                 speed -= 10;
+                speed = (speed > 0) ? speed : 0;        //뺀값이 0보다 크면 speed 0보다 작으면 0으로
             }
         }
 
@@ -840,7 +844,10 @@ namespace practice1
         
         class IDrawable
         {
+            public void Draw()
+            {
 
+            }
         }
     }
     public class Triangle   // practice12를 이해하기위함.
