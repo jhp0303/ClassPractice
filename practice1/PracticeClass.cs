@@ -928,7 +928,7 @@ namespace practice1
             }
         }
 
-        public static void practice()
+        public static void practice16()
         {
             FullTimeEmployee fe = new FullTimeEmployee("Tom", 190021);
             fe.AnnualSalary = 10000;
@@ -941,7 +941,7 @@ namespace practice1
             int workHour = 8;
             int totalPayment = pe.CalculatePay(workHour);
             Console.WriteLine("{0}'s work hour is {1}, total payment is {2}", pe.Name, workHour, totalPayment);
-            pe.Sayname();
+            pe.SayName();
 
 
 
@@ -960,6 +960,11 @@ namespace practice1
             public Employee(string name)
             {
                 this.Name = name;
+                
+            }
+
+            public virtual void SayName()
+            {
                 Console.WriteLine($"My name is {Name}");
             }
         }
@@ -987,7 +992,7 @@ namespace practice1
                 this.AnnualSalary += amount;
             }
 
-            public override void SayName() : base(name)
+            public override void SayName()
             {
                 //base.SayName();
                 Console.WriteLine($"My number is {EmployeeNumber}, name is {Name}"); ;
@@ -996,7 +1001,6 @@ namespace practice1
 
         public class PartTimeEmployee : Employee
         {
-            private int EmployeeNumber { get; set; }
             public PartTimeEmployee(string name) : base(name)
             {
                 
@@ -1009,6 +1013,28 @@ namespace practice1
             {
                 return hourlyRate * time;
             }
+
+            public override void SayName()
+            {
+                Console.WriteLine($"I'm part-time employee. My name is {Name}");
+            }
+        }
+
+        public static void practice17()
+        {
+            int counter = 0;
+            string line;
+
+            System.IO.StreamReader file = new System.IO.StreamReader(@"c:\Desktop\score.txt");
+            while((line = file.ReadLine()) != null)
+            {
+                System.Console.WriteLine(line);
+                counter++;
+            }
+
+            file.Close();
+            System.Console.WriteLine("There were {0} Lines", counter);
+            System.Console.ReadLine();
         }
     }
     public class Triangle   // practice12를 이해하기위함.
