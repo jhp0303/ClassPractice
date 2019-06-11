@@ -791,7 +791,7 @@ namespace practice1
             Console.WriteLine("정지후 속도:{0}", car.Speed);
         }
 
-        class Car
+        class Car   //practice14에 쓰이는 Car 클래스
         {
             private int speed;
 
@@ -839,14 +839,92 @@ namespace practice1
 
         public static void practice15()
         {
+            MyPaint paint = new MyPaint();
 
+            TriangleDraw t = new TriangleDraw(3, 4, 5);
+            paint.DrawShape(t);
+            Console.WriteLine();
+
+            //Output
+            //
+            //Draw Triangle(3,4,5)
+            RectangleDraw r = new RectangleDraw(5, 10);
+            paint.DrawShape(r);
+            Console.WriteLine();
+            //
+            //Draw Triangle(3,4,5)
+            //Draw Rectangle(5,10)
+            CustomShapeDraw c = new CustomShapeDraw(5, 10, 2, 2);
+            paint.DrawShape(c);
+            Console.WriteLine();
+            //Draw Triangle(3,4,5)
+            //Draw Rectangle(5,10)
+            //Draw CustomShape(5,10,2,2)
         }
-        
-        class IDrawable
+
+        public interface IDrawable  //인터페이스를 이용
         {
+            void Draw();
+        }
+
+        public class MyPaint    //MyPain클래스생성
+        {
+            List<IDrawable> drawables = new List<IDrawable>();  //IDrawable 리스트를 생성
+
+
+            public void DrawShape(IDrawable shape)  //생성했던 도형클래스들을 저장하는 메서드
+            {
+                drawables.Add(shape);   //저장
+
+                foreach(IDrawable drawable in drawables)    //출력
+                {
+                    drawable.Draw();
+                }
+            }
+        }
+
+        class TriangleDraw : IDrawable  //practice15에서 사용한 삼각형
+        {
+            private int A, B, C;
+            public TriangleDraw(int a, int b, int c)
+            {
+                A = a;
+                B = b;
+                C = c;
+            }
             public void Draw()
             {
+                Console.WriteLine("Draw triangle({0},{1},{2})", A, B, C);
+            }   
+        }
+        class RectangleDraw : IDrawable  //practice15에서 사용한 직사각형
+        {
+            private int w, h;
+            public RectangleDraw(int Width, int Height)
+            {
+                w = Width;
+                h = Height;
+            }
+            public void Draw()
+            {
+                Console.WriteLine("Draw Rectangle({0},{1})", w, h);
+            }
+        }
 
+        class CustomShapeDraw : IDrawable  //practice15에서 사용한 커스텀도형
+        {
+            private int w, h, x, y;
+            public CustomShapeDraw(int Width, int Height, int X, int Y)
+            {
+                w = Width;
+                h = Height;
+                x = X;
+                y = Y;
+            }
+
+            public void Draw()
+            {
+                Console.WriteLine("Draw CustomShape({0}, {1}, {2}, {3})", w, h, x, y);
             }
         }
     }
