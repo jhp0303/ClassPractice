@@ -927,6 +927,89 @@ namespace practice1
                 Console.WriteLine("Draw CustomShape({0}, {1}, {2}, {3})", w, h, x, y);
             }
         }
+
+        public static void practice()
+        {
+            FullTimeEmployee fe = new FullTimeEmployee("Tom", 190021);
+            fe.AnnualSalary = 10000;
+            fe.AdjustSalary(-100);
+            Console.WriteLine("{0}'s annual salary is {1}", fe.Name, fe.AnnualSalary);
+            fe.SayName();
+
+            PartTimeEmployee pe = new PartTimeEmployee("Jane");
+            pe.hourlyRate = 100;
+            int workHour = 8;
+            int totalPayment = pe.CalculatePay(workHour);
+            Console.WriteLine("{0}'s work hour is {1}, total payment is {2}", pe.Name, workHour, totalPayment);
+            pe.Sayname();
+
+
+
+        }
+
+        public class Employee
+        {
+
+            public string Name { get; set; }
+            public string Email { get; set; }
+            
+            /*  1번
+            public Employee() { }
+            */
+
+            public Employee(string name)
+            {
+                this.Name = name;
+                Console.WriteLine($"My name is {Name}");
+            }
+        }
+
+        public class FullTimeEmployee : Employee
+        {
+            /*  1번 위의 1번과같은 형태가 나올때는 이런 형태
+            public FullTimeEmployee() : base()
+            {
+
+            }
+            */
+            private int EmployeeNumber { get; set; }
+
+            public FullTimeEmployee(string name, int number) : base(name)   //풀타임임플로이도 임플로이를 상속 받는거고 name을 반드시 필요로하는거기때문에 베이스클래스도 네임을 받음
+            {
+                EmployeeNumber = number;
+            }
+            
+
+            public int AnnualSalary { get; set; }
+
+            public void AdjustSalary(int amount)
+            {
+                this.AnnualSalary += amount;
+            }
+
+            public override void SayName() : base(name)
+            {
+                //base.SayName();
+                Console.WriteLine($"My number is {EmployeeNumber}, name is {Name}"); ;
+            }
+        }
+
+        public class PartTimeEmployee : Employee
+        {
+            private int EmployeeNumber { get; set; }
+            public PartTimeEmployee(string name) : base(name)
+            {
+                
+            }
+
+
+            public int hourlyRate { get; set; }
+
+            public int CalculatePay(int time)
+            {
+                return hourlyRate * time;
+            }
+        }
     }
     public class Triangle   // practice12를 이해하기위함.
     {
