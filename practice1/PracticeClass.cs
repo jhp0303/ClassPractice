@@ -894,7 +894,7 @@ namespace practice1
             }
             public void Draw()
             {
-                Console.WriteLine("Draw triangle({0},{1},{2})", A, B, C);
+                Console.WriteLine("Draw triangle({0},{1},{2})", A, B, C);   // == Console.WriteLine($"Draw Triangle({A},{B},{C})");
             }   
         }
         class RectangleDraw : IDrawable  //practice15에서 사용한 직사각형
