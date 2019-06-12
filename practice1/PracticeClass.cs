@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace practice1
 {
@@ -734,7 +735,7 @@ namespace practice1
 
         class Calculater2<T>    //practice13_2 에 쓰이는 제네릭 클래스
         {
-            public T Add(T a,T b)
+            public T Add(T a, T b)
             {
                 dynamic da = a;
                 dynamic db = b;
@@ -742,7 +743,7 @@ namespace practice1
                 dynamic sum = da + db;
                 return sum;
             }
-            public T Substract(T a,T b)
+            public T Substract(T a, T b)
             {
                 dynamic da = a;
                 dynamic db = b;
@@ -786,7 +787,7 @@ namespace practice1
             car.Accelerate();
             Console.WriteLine("엑셀 1단계 속도:{0}", car.Speed);
             car.Accelerate();
-            Console.WriteLine("엑셀 2단계 속도:{0}", car.Speed+10);
+            Console.WriteLine("엑셀 2단계 속도:{0}", car.Speed + 10);
             car.Stop();
             Console.WriteLine("정지후 속도:{0}", car.Speed);
         }
@@ -795,7 +796,7 @@ namespace practice1
         {
             private int speed;
 
-            public string Name {get; set;}
+            public string Name { get; set; }
             public string Maker { get; set; }
             public string Model { get; set; }
 
@@ -876,7 +877,7 @@ namespace practice1
             {
                 drawables.Add(shape);   //저장
 
-                foreach(IDrawable drawable in drawables)    //출력
+                foreach (IDrawable drawable in drawables)    //출력
                 {
                     drawable.Draw();
                 }
@@ -895,7 +896,7 @@ namespace practice1
             public void Draw()
             {
                 Console.WriteLine("Draw triangle({0},{1},{2})", A, B, C);   // == Console.WriteLine($"Draw Triangle({A},{B},{C})");
-            }   
+            }
         }
         class RectangleDraw : IDrawable  //practice15에서 사용한 직사각형
         {
@@ -910,7 +911,6 @@ namespace practice1
                 Console.WriteLine("Draw Rectangle({0},{1})", w, h);
             }
         }
-
         class CustomShapeDraw : IDrawable  //practice15에서 사용한 커스텀도형
         {
             private int w, h, x, y;
@@ -952,7 +952,7 @@ namespace practice1
 
             public string Name { get; set; }
             public string Email { get; set; }
-            
+
             /*  1번
             public Employee() { }
             */
@@ -960,7 +960,7 @@ namespace practice1
             public Employee(string name)
             {
                 this.Name = name;
-                
+
             }
 
             public virtual void SayName()
@@ -968,7 +968,6 @@ namespace practice1
                 Console.WriteLine($"My name is {Name}");
             }
         }
-
         public class FullTimeEmployee : Employee
         {
             /*  1번 위의 1번과같은 형태가 나올때는 이런 형태
@@ -983,7 +982,7 @@ namespace practice1
             {
                 EmployeeNumber = number;
             }
-            
+
 
             public int AnnualSalary { get; set; }
 
@@ -998,12 +997,11 @@ namespace practice1
                 Console.WriteLine($"My number is {EmployeeNumber}, name is {Name}"); ;
             }
         }
-
         public class PartTimeEmployee : Employee
         {
             public PartTimeEmployee(string name) : base(name)
             {
-                
+
             }
 
 
@@ -1020,22 +1018,47 @@ namespace practice1
             }
         }
 
-        public static void practice17()
-        {
-            int counter = 0;
-            string line;
-
-            System.IO.StreamReader file = new System.IO.StreamReader(@"c:\Desktop\score.txt");
-            while((line = file.ReadLine()) != null)
+        public static void practice17() //원하는 txt파일을 불러와서 합산과 평균을 구하기
+        { 
+            if (File.Exists(@"C:\score.txt"))
             {
-                System.Console.WriteLine(line);
-                counter++;
+                 Console.WriteLine("[L] File exists");
             }
 
-            file.Close();
-            System.Console.WriteLine("There were {0} Lines", counter);
-            System.Console.ReadLine();
+            else
+            {
+                Console.WriteLine("[L] File does not exists");
+            }
+            char[] charSeprators = new char[] { ',' };
+            string path = @"D:\score.txt";
+
+
+            string[] lines = File.ReadAllLines(@"C:\score.txt");
+            {
+                foreach (string line in lines)
+                {
+                    string[] result;
+                    int sum = 0;
+                    int div;
+                    result = line.Split(charSeprators, StringSplitOptions.None);
+                    for (int i = 1; i < result.Length; i++)
+                    {
+                        sum += int.Parse(result[i]);
+                    }
+                    div = sum / (result.Length - 1);
+
+                    using (StreamWriter outputFile = new StreamWriter(path, true))
+                    {
+                        outputFile.Write(line);
+                        outputFile.Write($",{ sum}");
+                        outputFile.WriteLine($",{div}");
+                    }
+                }
+
+            }
         }
+
+        
     }
     public class Triangle   // practice12를 이해하기위함.
     {

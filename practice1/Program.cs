@@ -10,7 +10,7 @@ namespace practice1
     {
         static void Main(string[] args)
         {
-            PracticeClass.practice16();
+            
 
             /*  // 사칙연산 메서드를 호출해서 메인함수에서 계산하기 2019-06-07
             int sum = PracticeClass.Add(3, 5);
@@ -35,8 +35,8 @@ namespace practice1
             */
 
 
-
-            //PracticeClass.practice6();  //practice1,2를 하냐에따라 PracticeClass의 어떤 펑션을 실행할지 결정함.
+            //Example.Test();
+            PracticeClass.practice17();  //practice1,2를 하냐에따라 PracticeClass의 어떤 펑션을 실행할지 결정함.
             Console.ReadLine();
             
         }
