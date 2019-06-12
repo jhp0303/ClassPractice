@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace practice1
+namespace practice
 {
     public static class PracticeClass
     {

@@ -36,7 +36,7 @@ namespace practice1
 
 
             //Example.Test();
-            PracticeClass.practice17();  //practice1,2를 하냐에따라 PracticeClass의 어떤 펑션을 실행할지 결정함.
+            //PracticeClass.practice17();  //practice1,2를 하냐에따라 PracticeClass의 어떤 펑션을 실행할지 결정함.
             Console.ReadLine();
             
         }
